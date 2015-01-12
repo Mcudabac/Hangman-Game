@@ -1,0 +1,190 @@
+<html>
+<body>
+
+
+
+<button onclick="myRandom()">New Word</button>
+
+<p id="demo"> </p>
+
+<p id="demo2"> </p>
+
+<p id="demo3" </p>
+
+<p id="demo4" </p>
+
+Guess Letter: <input type="text" id="letter" onkeyup="guessLetter()">
+
+
+
+<canvas id="myCan" width="400" height= "270" style="border:1px solid #d3d3d3;">
+</canvas>
+
+<script>
+var myArray = ["pizza","army","johnny","freight","coltrane","lead","railroad","war","life","earth","jungle","lions","apple","acoustic","nobody","california","eagle","volume","employee","wife"]
+
+var word
+
+var myArray2=[]
+
+function myRandom()
+{
+	var x = Math.floor(Math.random() * 20)
+    word= myArray[x]
+	var s = "<pre>"
+		for(i= 0; i < word.length; i++){
+		s= s + " ___ ";
+		myArray2[i]= " "
+		}
+	document.getElementById("demo2").innerHTML = s + "</pre>"
+}
+
+var counter = 0
+
+function guessLetter() {
+var alertDone= false;
+	
+var foundLetter= false;
+	
+var myArray=[]
+	
+        letter = document.getElementById("letter").value
+	document.getElementById("letter").value = "";
+	for(i=0; i < word.length ; i++){
+		if(letter==word.charAt(i)){
+			myArray[myArray.length]= i
+			if (!alertDone) {
+				//alert("Congrats! You found a letter!")
+				//alertDone= true
+				foundLetter= true
+				}	
+		}
+	}
+			
+			if (!foundLetter) {
+				//alert("Sorry")
+			
+			
+			     
+			if(counter == 0) {
+                                           var kmp = document.getElementById("myCan")
+                                           var ctx = kmp.getContext("2d");
+                                           ctx.beginPath();
+                                           ctx.arc(210,105,30,0,2*Math.PI);
+                                           ctx.stroke();
+                                                 }
+                          else if (counter == 1) {
+                                                  var kmpz = document.getElementById("myCan")                 
+	                                          var ctx = kmpz.getContext("2d")
+                                                  ctx.moveTo(210,130);
+                                                  ctx.lineTo(210,160);
+                                                  ctx.stroke();
+                                                 }
+
+                          else if (counter == 2) {
+                                                  var kmpz1 = document.getElementById("myCan")                 
+	                                          var ctx = kmpz1.getContext("2d")
+                                                  ctx.moveTo(210,150);
+                                                  ctx.lineTo(160,140);
+                                                  ctx.stroke();
+                                                 }
+                else if (counter == 3) { 
+                                        var kmpz2 = document.getElementById("myCan")
+                                        var ctx = kmpz2.getContext("2d")
+                                        ctx.moveTo(210,150);
+                                        ctx.lineTo(260,140);
+                                        ctx.stroke();
+                                      }
+               else if (counter == 4) {
+                                        var kmpz3 = document.getElementById("myCan")
+                                        var ctx = kmpz3.getContext("2d") 
+                                        ctx.moveTo(210,160);
+                                        ctx.lineTo(190,210);
+                                        ctx.stroke();
+                                      }
+               else if (counter == 5) {
+                                       var kmpz4 = document.getElementById("myCan")
+                                       var ctx = kmpz4.getContext("2d")
+                                       ctx.moveTo(210,160);
+                                       ctx.lineTo(230,210);
+                                       ctx.stroke();
+                                      }
+               else {
+                      document.getElementById("demo4").innerHTML = "Game over. Try again!"
+                    }
+                    counter = counter + 1 ;
+                 }
+	for(i=0; i < myArray.length ; i++){
+				           myArray2[myArray[i]]= letter
+			}
+	
+		var tt = "<pre>" 
+		
+                      for(i= 0; i < myArray2.length; i++) {
+			tt = tt + "  " + myArray2[i] + "  " ;	
+		}	
+		document.getElementById("demo").innerHTML = tt + "</pre>"
+	
+		var gooD= false
+		for(i= 0; i < myArray2.length; i++) {
+	          if(myArray2[i]== " ") {
+			gooD= true;
+			break
+			}	
+		
+		}
+		
+			if(gooD) {
+			  //alert("Your wrong! click button to guess the word.")
+			}
+			
+                         else {
+			  document.getElementById("demo3").innerHTML = "Congratzzzzz! The word is " + word;
+                              }
+}
+
+function guessWord() {
+    var qq = prompt("Please guess the word", "");
+    
+    if (qq == word) {
+        
+        document.getElementById("demo3").innerHTML = "Congratzzzzzz! The word is " + word;
+	}
+	
+        else {
+		alert("Sorry, that is wrong. Please give it another shot!");
+	}
+}
+
+var canCan = document.getElementById("myCan");
+var ctx = canCan.getContext("2d");
+  ctx.beginPath();
+  ctx.rect(300,200,60,60);
+  ctx.stroke();
+
+var canCan = document.getElementById("myCan");
+var ctx = canCan.getContext("2d");
+  ctx.moveTo(330,30);
+  ctx.lineTo(330,200);
+  ctx.stroke();
+
+var canCan = document.getElementById("myCan");
+var ctx = canCan.getContext("2d");
+  ctx.moveTo(330,30);
+  ctx.lineTo(210,30);
+  ctx.stroke();
+
+var canCan = document.getElementById("myCan");
+var ctx = canCan.getContext("2d");
+  ctx.moveTo(210,30);
+  ctx.lineTo(210,80);
+  ctx.stroke();
+
+</script>
+<form method="post">
+<input type="button" value="Reload Window"
+onclick="window.location.reload()">
+</form>
+</body>
+</html>
+
